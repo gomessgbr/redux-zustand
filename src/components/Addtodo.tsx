@@ -1,16 +1,23 @@
 import { FormEvent, useState } from "react"
+import {useDispatch} from 'react-redux'
+import {add} from '../store'
+
 
 export function AddTodo(){
-const [newtodo,setNewtodo]= useState('')
+const [newTodo,setNewTodo]= useState('')
+const dispatch= useDispatch()
 
 function handleNewTodo(e: FormEvent){
   e.preventDefault()
-  console.log(newtodo)
+  dispatch(add({
+    newTodo,
+  }))
+  setNewTodo('')
   
 }
   return(
     <form action="">
-      <input type="text" placeholder="Novo to-do" value={newtodo} onChange={e=>setNewtodo(e.target.value)} />
+      <input type="text" placeholder="Novo to-do" value={newTodo} onChange={e=>setNewTodo(e.target.value)} />
       <button type="submit" onClick={handleNewTodo} >Adicionar</button>
     </form>
   )
