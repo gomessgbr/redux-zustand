@@ -1,7 +1,8 @@
+import  './styles/global.css'
 import {Provider as ReduxProvider} from 'react-redux'
-import { AddTodo } from "./components/Addtodo";
-import { TodoList } from "./components/TodoList";
+
 import { store } from './store';
+import { Player } from './pages/Player';
 
 
 export function App() {
@@ -9,11 +10,7 @@ export function App() {
 
   return (
     <ReduxProvider store={store}>
-      <div>
-        <h1>Hello</h1>
-        <TodoList/>
-        <AddTodo/>
-      </div>
+      <Player/>
     </ReduxProvider>
   )
 }
