@@ -22,7 +22,7 @@ export interface PlayerState {
 
   play: (moduleAndLessonIndex: [number, number]) => void;
   next: () => void;
-  load: ()=> Promise<voidßß>
+  load: ()=> Promise<void>
 }
 
 export const useStore = create<PlayerState>((set, get) => {
@@ -33,7 +33,7 @@ export const useStore = create<PlayerState>((set, get) => {
     isLoading: false,
 
     load:async()=>{
-      set({isLaoding:true})
+      set({isLoading:true})
       const response = await api.get('/courses/1')
 
       set({
